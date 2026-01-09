@@ -4,6 +4,9 @@ import { SurveyScreen, SurveyData } from "@/components/screens/SurveyScreen";
 import { ThankYouScreen } from "@/components/screens/ThankYouScreen";
 import { useToast } from "@/hooks/use-toast";
 
+// ⚠️ IMPORTANTE: Reemplaza esta URL con la URL de tu Google Apps Script Web App
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/TU_ID_AQUI/exec";
+
 type Screen = "welcome" | "survey" | "thankyou";
 
 const Index = () => {
@@ -16,7 +19,7 @@ const Index = () => {
 
   const handleSubmitSurvey = async (data: SurveyData) => {
     try {
-      // Prepare data for Google Sheets
+      // Preparar datos para Google Sheets
       const submissionData = {
         timestamp: new Date().toISOString(),
         empresa: "Pozuzo Bier",
@@ -27,15 +30,15 @@ const Index = () => {
         canal: data.email ? "correo" : "WhatsApp",
       };
 
-      console.log("Survey data to submit:", submissionData);
+      console.log("Enviando datos:", submissionData);
 
-      // Here you would send to Google Apps Script Web App
-      // const response = await fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
-      //   method: "POST",
-      //   mode: "no-cors",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(submissionData),
-      // });
+      // Enviar a Google Apps Script Web App
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(submissionData),
+      });
 
       toast({
         title: "¡Encuesta enviada!",
