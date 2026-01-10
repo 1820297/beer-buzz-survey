@@ -5,7 +5,7 @@ import { ThankYouScreen } from "@/components/screens/ThankYouScreen";
 import { useToast } from "@/hooks/use-toast";
 
 // ⚠️ IMPORTANTE: Reemplaza esta URL con la URL de tu Google Apps Script Web App
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/TU_ID_AQUI/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzpNB_Z7CFBJ2-77MM6jWrQlxxOHohl4aQksfi7CyTt5xS2JmSZrpU9TINbh2w888o2wA/exec";
 
 type Screen = "welcome" | "survey" | "thankyou";
 
@@ -26,16 +26,21 @@ const Index = () => {
         satisfaccion: data.satisfaction,
         motivo: data.reason.join(", "),
         comentario: data.comment || "",
-        contacto: data.email || data.whatsapp,
-        canal: data.email ? "correo" : "WhatsApp",
-      };
+        contacto: data.email && data.whatsapp
+        ? `${data.email} | ${data.whatsapp}`
+        : data.email || data.whatsapp || "",
+        canal: data.email && data.whatsapp
+        ? "correo y WhatsApp"
+        : data.email
+        ? "correo"
+        : "WhatsApp",
+  };
 
       console.log("Enviando datos:", submissionData);
 
       // Enviar a Google Apps Script Web App
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submissionData),
       });
