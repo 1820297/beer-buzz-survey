@@ -24,7 +24,7 @@ const Index = () => {
         timestamp: new Date().toISOString(),
         empresa: "Pozuzo Bier",
         satisfaccion: data.satisfaction,
-        motivo: data.reason,
+        motivo: data.reason.join(", "),
         comentario: data.comment || "",
         contacto: data.email || data.whatsapp,
         canal: data.email ? "correo" : "WhatsApp",

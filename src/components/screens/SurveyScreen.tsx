@@ -14,7 +14,7 @@ interface SurveyScreenProps {
 
 export interface SurveyData {
   satisfaction: number;
-  reason: string;
+  reason: string[];
   comment: string;
   email: string;
   whatsapp: string;
@@ -22,7 +22,7 @@ export interface SurveyData {
 
 export function SurveyScreen({ onSubmit, onBack }: SurveyScreenProps) {
   const [satisfaction, setSatisfaction] = useState<number | null>(null);
-  const [reason, setReason] = useState<string | null>(null);
+  const [reasons, setReasons] = useState<string[]>([]);
   const [comment, setComment] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -40,9 +40,9 @@ export function SurveyScreen({ onSubmit, onBack }: SurveyScreenProps) {
       return;
     }
     
-    if (!reason) {
+    if (reasons.length === 0) {
       toast({
-        title: "Por favor selecciona un motivo",
+        title: "Por favor selecciona al menos un motivo",
         variant: "destructive",
       });
       return;
@@ -63,7 +63,7 @@ export function SurveyScreen({ onSubmit, onBack }: SurveyScreenProps) {
     
     onSubmit({
       satisfaction,
-      reason,
+      reason: reasons,
       comment,
       email,
       whatsapp,
@@ -107,10 +107,10 @@ export function SurveyScreen({ onSubmit, onBack }: SurveyScreenProps) {
             className="bg-card rounded-2xl p-5 sm:p-6 shadow-card border border-border animate-fade-in-up"
             style={{ animationDelay: "0.1s" }}
           >
-            <h2 className="font-display text-lg sm:text-xl font-semibold text-foreground mb-4">
-              ¿Cuál es el motivo principal de tu calificación?
+            <h2 className="font-display text-lg sm:text-xl font-semibold text-foreground mb-2">
+              🍻 ¿Qué influyó más en tu calificación?
             </h2>
-            <ReasonSelector value={reason} onChange={setReason} />
+            <ReasonSelector value={reasons} onChange={setReasons} />
           </section>
 
           {/* Comment */}
