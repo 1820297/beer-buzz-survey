@@ -6,12 +6,13 @@ interface ReasonSelectorProps {
 }
 
 const reasons = [
-  { id: "sabor", label: "Sabor", icon: "🍺" },
-  { id: "atencion", label: "Atención", icon: "👋" },
+  { id: "sabor", label: "Sabor y calidad de la cerveza", icon: "🍺" },
+  { id: "ingredientes", label: "Ingredientes artesanales", icon: "🌿" },
+  { id: "aroma", label: "Aroma y cuerpo", icon: "🍯" },
+  { id: "atencion", label: "Atención del personal", icon: "👋" },
   { id: "precio", label: "Precio", icon: "💰" },
-  { id: "variedad", label: "Variedad", icon: "🎨" },
-  { id: "ambiente", label: "Ambiente", icon: "🏠" },
-  { id: "otro", label: "Otro", icon: "💬" },
+  { id: "variedad", label: "Variedad de estilos", icon: "💡" },
+  { id: "experiencia", label: "Experiencia en general", icon: "❤️" },
 ];
 
 export function ReasonSelector({ value, onChange }: ReasonSelectorProps) {
