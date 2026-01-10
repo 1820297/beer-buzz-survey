@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { BeerBubbles } from "@/components/BeerBubbles";
-import { Beer } from "lucide-react";
+import pozuzoBierLogo from "@/assets/pozuzo-bier-logo.jpg";
 
 interface WelcomeScreenProps {
   onStart: () => void;
@@ -18,15 +18,11 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       <div className="relative z-10 text-center max-w-md mx-auto animate-fade-in-up">
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center">
-          <div className="w-24 h-24 bg-gradient-beer rounded-full flex items-center justify-center shadow-button mb-4 animate-float">
-            <Beer className="w-12 h-12 text-primary-foreground" />
-          </div>
-          <h1 className="font-display text-4xl sm:text-5xl font-bold text-beer-cream">
-            Pozuzo Bier
-          </h1>
-          <p className="text-beer-golden/80 text-sm mt-2 tracking-wider uppercase">
-            Cerveza Artesanal
-          </p>
+          <img 
+            src={pozuzoBierLogo} 
+            alt="Pozuzo Bier Logo" 
+            className="w-48 h-auto mb-4 animate-float drop-shadow-2xl"
+          />
         </div>
         
         {/* Welcome message */}
