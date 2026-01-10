@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { BeerBubbles } from "@/components/BeerBubbles";
 import pozuzoBierLogo from "@/assets/pozuzo-bier-logo.jpg";
+import pozuzoValleyBg from "@/assets/pozuzo-valley-bg.jpg";
 
 interface WelcomeScreenProps {
   onStart: () => void;
@@ -8,12 +9,16 @@ interface WelcomeScreenProps {
 
 export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
   return (
-    <div className="min-h-screen bg-gradient-hero flex flex-col items-center justify-center p-6 relative overflow-hidden">
-      <BeerBubbles />
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${pozuzoValleyBg})` }}
+      />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-beer-dark/60" />
       
-      {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-beer-amber/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-beer-golden/10 rounded-full blur-3xl" />
+      <BeerBubbles />
       
       <div className="relative z-10 text-center max-w-md mx-auto animate-fade-in-up">
         {/* Logo */}
