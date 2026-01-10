@@ -26,7 +26,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
           <img 
             src={pozuzoBierLogo} 
             alt="Pozuzo Bier Logo" 
-            className="w-48 h-auto mb-3 animate-float drop-shadow-2xl"
+            className="w-64 sm:w-72 h-auto mb-4 animate-float drop-shadow-[0_0_30px_rgba(0,0,0,0.8)]"
           />
           <p className="text-beer-amber font-display text-lg tracking-wide uppercase">
             Cerveza Artesanal
