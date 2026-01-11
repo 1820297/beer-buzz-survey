@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { BeerBubbles } from "@/components/BeerBubbles";
 import { Beer, RefreshCw, Heart } from "lucide-react";
+import thankYouBg from "@/assets/thank-you-bg.jpg";
 
 interface ThankYouScreenProps {
   onRestart: () => void;
@@ -8,12 +9,16 @@ interface ThankYouScreenProps {
 
 export function ThankYouScreen({ onRestart }: ThankYouScreenProps) {
   return (
-    <div className="min-h-screen bg-gradient-hero flex flex-col items-center justify-center p-6 relative overflow-hidden">
-      <BeerBubbles />
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${thankYouBg})` }}
+      />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-beer-dark/60" />
       
-      {/* Decorative circles */}
-      <div className="absolute top-20 right-10 w-48 h-48 bg-beer-amber/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-72 h-72 bg-beer-golden/10 rounded-full blur-3xl" />
+      <BeerBubbles />
       
       <div className="relative z-10 text-center max-w-md mx-auto">
         {/* Success animation */}
