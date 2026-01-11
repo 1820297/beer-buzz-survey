@@ -4,8 +4,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { SatisfactionScale } from "@/components/SatisfactionScale";
 import { ReasonSelector } from "@/components/ReasonSelector";
-import { Beer, Mail, Phone, ArrowLeft, Send, Loader2 } from "lucide-react";
+import { Mail, Phone, ArrowLeft, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import pozuzoBottle from "@/assets/pozuzo-bottle.jpg";
 
 interface SurveyScreenProps {
   onSubmit: (data: SurveyData) => void;
@@ -84,9 +85,11 @@ export function SurveyScreen({ onSubmit, onBack }: SurveyScreenProps) {
             <ArrowLeft className="w-5 h-5 text-muted-foreground" />
           </button>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-beer rounded-full flex items-center justify-center shadow-warm">
-              <Beer className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <img 
+              src={pozuzoBottle} 
+              alt="Pozuzo Bier" 
+              className="w-10 h-14 object-contain drop-shadow-lg"
+            />
             <h1 className="font-display text-xl font-semibold text-foreground">
               Pozuzo Bier
             </h1>
