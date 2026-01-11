@@ -9,7 +9,7 @@ interface ThankYouScreenProps {
 
 export function ThankYouScreen({ onRestart }: ThankYouScreenProps) {
   return (
-    <div className="min-h-screen flex flex-col items-start justify-start pt-12 p-6 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
       {/* Background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
