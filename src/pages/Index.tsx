@@ -24,7 +24,7 @@ const Index = () => {
         timestamp: new Date().toISOString(),
         empresa: "Pozuzo Bier",
         satisfaccion: data.satisfaction,
-        motivo: Array.isArray(data.reason) ? data.reason.join(", ") : "",
+        motivo: data.reason.join(", "),
         comentario: data.comment || "",
         contacto: data.email && data.whatsapp
         ? `${data.email} | ${data.whatsapp}`
@@ -45,13 +45,6 @@ const Index = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submissionData),
       });
-      try {
-        await fetch(...)
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setCurrentScreen("thankyou");
-      }
 
       toast({
         title: "¡Encuesta enviada!",
