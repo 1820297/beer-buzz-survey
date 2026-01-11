@@ -88,7 +88,7 @@ export function SurveyScreen({ onSubmit, onBack }: SurveyScreenProps) {
             <img 
               src={pozuzoBottle} 
               alt="Pozuzo Bier" 
-              className="w-10 h-14 object-contain drop-shadow-lg"
+              className="w-14 h-20 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
             />
             <h1 className="font-display text-xl font-semibold text-foreground">
               Pozuzo Bier
